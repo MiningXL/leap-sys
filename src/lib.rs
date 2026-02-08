@@ -420,7 +420,7 @@ fn bindgen_test_layout_LEAP_ALLOCATOR() {
     }
     test_field_state();
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Samples the universal clock used by the system to timestamp image and tracking frames."]
     #[doc = ""]
@@ -431,7 +431,7 @@ extern "C" {
     #[doc = " @since 3.0.0"]
     pub fn LeapGetNow() -> i64;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Creates a new LEAP_CONNECTION object."]
     #[doc = ""]
@@ -449,7 +449,7 @@ extern "C" {
         phConnection: *mut LEAP_CONNECTION,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Opens a connection to the service."]
     #[doc = ""]
@@ -670,7 +670,7 @@ fn bindgen_test_layout__LEAP_CONNECTION_INFO() {
 #[doc = " LeapGetConnectionInfo(), which creates this struct, to check the connection status."]
 #[doc = " @since 3.0.0"]
 pub type LEAP_CONNECTION_INFO = _LEAP_CONNECTION_INFO;
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Retrieves status information about the specified connection."]
     #[doc = ""]
@@ -838,7 +838,7 @@ fn bindgen_test_layout__LEAP_TRACKING_MODE_EVENT() {
 #[doc = " LeapPollConnection() creates this struct when the response becomes available."]
 #[doc = " @since 3.0.0"]
 pub type LEAP_TRACKING_MODE_EVENT = _LEAP_TRACKING_MODE_EVENT;
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Sets or clears one or more policy flags."]
     #[doc = ""]
@@ -859,7 +859,7 @@ extern "C" {
     #[doc = " @since 3.0.0"]
     pub fn LeapSetPolicyFlags(hConnection: LEAP_CONNECTION, set: u64, clear: u64) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Sets or clears one or more policy flags for a particular device."]
     #[doc = ""]
@@ -886,7 +886,7 @@ extern "C" {
         clear: u64,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Requests a tracking mode."]
     #[doc = ""]
@@ -902,7 +902,7 @@ extern "C" {
     #[doc = " @since 5.0.0"]
     pub fn LeapSetTrackingMode(hConnection: LEAP_CONNECTION, mode: eLeapTrackingMode) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Requests a tracking mode for a particular device."]
     #[doc = ""]
@@ -923,7 +923,7 @@ extern "C" {
         mode: eLeapTrackingMode,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Requests the currently set tracking mode."]
     #[doc = ""]
@@ -938,7 +938,7 @@ extern "C" {
     #[doc = " @since 5.0.0"]
     pub fn LeapGetTrackingMode(hConnection: LEAP_CONNECTION) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Requests the currently set tracking mode for a particular device."]
     #[doc = ""]
@@ -954,7 +954,7 @@ extern "C" {
     #[doc = " @since 5.4.0"]
     pub fn LeapGetTrackingModeEx(hConnection: LEAP_CONNECTION, hDevice: LEAP_DEVICE) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Pauses the service"]
     #[doc = ""]
@@ -969,7 +969,7 @@ extern "C" {
     #[doc = " @since 4.0.0"]
     pub fn LeapSetPause(hConnection: LEAP_CONNECTION, pause: bool) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Sets the allocator functions to use for a particular connection."]
     #[doc = ""]
@@ -1288,7 +1288,7 @@ fn bindgen_test_layout__LEAP_CONFIG_CHANGE_EVENT() {
 #[doc = " @returns The operation result code, a member of the eLeapRS enumeration."]
 #[doc = " @since 3.0.0"]
 pub type LEAP_CONFIG_CHANGE_EVENT = _LEAP_CONFIG_CHANGE_EVENT;
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Causes the client to commit a configuration change to the Ultraleap Tracking Service."]
     #[doc = ""]
@@ -1309,7 +1309,7 @@ extern "C" {
         pRequestID: *mut u32,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Requests the current value of a service configuration setting."]
     #[doc = " The value is fetched asynchronously since it requires a service transaction. LeapPollConnection()"]
@@ -1327,7 +1327,7 @@ extern "C" {
         pRequestID: *mut u32,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Retrieves a list of Ultraleap Tracking camera devices currently attached to the system."]
     #[doc = ""]
@@ -1350,7 +1350,7 @@ extern "C" {
         pnArray: *mut u32,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Opens a device reference and retrieves a handle to the device."]
     #[doc = ""]
@@ -1364,7 +1364,7 @@ extern "C" {
     #[doc = " @since 3.0.0"]
     pub fn LeapOpenDevice(rDevice: LEAP_DEVICE_REF, phDevice: *mut LEAP_DEVICE) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " For a multi-device aware client, sets the device to use in the context of"]
     #[doc = " non-\"Ex\" API functions which are logically device-specific but don't provide"]
@@ -1398,7 +1398,7 @@ extern "C" {
         unsubscribeOthers: bool,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Subscribe to event messages based on device."]
     #[doc = ""]
@@ -1414,7 +1414,7 @@ extern "C" {
     #[doc = " @since 5.4.0"]
     pub fn LeapSubscribeEvents(hConnection: LEAP_CONNECTION, hDevice: LEAP_DEVICE) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Unsubscribe from event messages based on device."]
     #[doc = ""]
@@ -1677,7 +1677,7 @@ fn bindgen_test_layout__LEAP_DEVICE_INFO() {
 #[doc = " device. The device must be open."]
 #[doc = " @since 3.0.0"]
 pub type LEAP_DEVICE_INFO = _LEAP_DEVICE_INFO;
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Gets device properties."]
     #[doc = ""]
@@ -1694,7 +1694,7 @@ extern "C" {
     #[doc = " @since 3.0.0"]
     pub fn LeapGetDeviceInfo(hDevice: LEAP_DEVICE, info: *mut LEAP_DEVICE_INFO) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Get the transform to world coordinates from 3D Leap coordinates."]
     #[doc = ""]
@@ -5589,7 +5589,7 @@ fn bindgen_test_layout__LEAP_CONNECTION_MESSAGE() {
 #[doc = " Set by calling LeapPollConnection()."]
 #[doc = " @since 3.0.0"]
 pub type LEAP_CONNECTION_MESSAGE = _LEAP_CONNECTION_MESSAGE;
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Polls the connection for a new event."]
     #[doc = ""]
@@ -5617,7 +5617,7 @@ extern "C" {
         evt: *mut LEAP_CONNECTION_MESSAGE,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Retrieves the number of bytes required to allocate an interpolated frame at the specified time."]
     #[doc = ""]
@@ -5634,7 +5634,7 @@ extern "C" {
         pncbEvent: *mut u64,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Retrieves the number of bytes required to allocate an interpolated frame at the specified time"]
     #[doc = " for a particular device."]
@@ -5654,7 +5654,7 @@ extern "C" {
         pncbEvent: *mut u64,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Constructs a frame at the specified timestamp by interpolating between measured"]
     #[doc = " frames."]
@@ -5679,7 +5679,7 @@ extern "C" {
         ncbEvent: u64,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Constructs a frame at the specified timestamp for a particular device by"]
     #[doc = " interpolating between measured frames."]
@@ -5706,7 +5706,7 @@ extern "C" {
         ncbEvent: u64,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Constructs a frame at the specified timestamp by interpolating between a frame near the timestamp"]
     #[doc = " and a frame near the sourceTimestamp."]
@@ -5733,7 +5733,7 @@ extern "C" {
         ncbEvent: u64,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Constructs a frame at the specified timestamp for a particular device by"]
     #[doc = " interpolating between a frame near the timestamp and a frame near the"]
@@ -5763,7 +5763,7 @@ extern "C" {
         ncbEvent: u64,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Closes a device handle previously opened with LeapOpenDevice."]
     #[doc = ""]
@@ -5771,7 +5771,7 @@ extern "C" {
     #[doc = " @since 3.0.0"]
     pub fn LeapCloseDevice(hDevice: LEAP_DEVICE);
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Closes a previously opened connection."]
     #[doc = ""]
@@ -5783,7 +5783,7 @@ extern "C" {
     #[doc = " @since 4.0.0"]
     pub fn LeapCloseConnection(hConnection: LEAP_CONNECTION);
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Destroys a previously opened connection."]
     #[doc = ""]
@@ -5807,7 +5807,7 @@ pub struct _LEAP_CLOCK_REBASER {
 #[doc = " \\struct LEAP_CLOCK_REBASER"]
 #[doc = " An opaque clock rebase state structure. @since 3.1.2"]
 pub type LEAP_CLOCK_REBASER = *mut _LEAP_CLOCK_REBASER;
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Initializes a new Leap clock-rebaser handle object."]
     #[doc = ""]
@@ -5819,7 +5819,7 @@ extern "C" {
     #[doc = " @since 3.1.2"]
     pub fn LeapCreateClockRebaser(phClockRebaser: *mut LEAP_CLOCK_REBASER) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Updates the relationship between the Ultraleap Tracking Service clock and the user clock."]
     #[doc = ""]
@@ -5843,7 +5843,7 @@ extern "C" {
         leapClock: i64,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Computes the Ultraleap Tracking Service clock corresponding to a specified application clock value."]
     #[doc = ""]
@@ -5862,7 +5862,7 @@ extern "C" {
         pLeapClock: *mut i64,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Destroys a previously created clock-rebaser object."]
     #[doc = ""]
@@ -5872,7 +5872,7 @@ extern "C" {
     #[doc = " @since 3.1.2"]
     pub fn LeapDestroyClockRebaser(hClockRebaser: LEAP_CLOCK_REBASER);
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Provides the corrected camera ray intercepting the specified point on the image."]
     #[doc = ""]
@@ -5897,7 +5897,7 @@ extern "C" {
         pixel: LEAP_VECTOR,
     ) -> LEAP_VECTOR;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Provides the corrected camera ray intercepting the specified point"]
     #[doc = " on the image for a particular device."]
@@ -5925,7 +5925,7 @@ extern "C" {
         pixel: LEAP_VECTOR,
     ) -> LEAP_VECTOR;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Provides the point in the image corresponding to a ray projecting"]
     #[doc = " from the camera."]
@@ -5955,7 +5955,7 @@ extern "C" {
         rectilinear: LEAP_VECTOR,
     ) -> LEAP_VECTOR;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Provides the point in the image corresponding to a ray projecting"]
     #[doc = " from the camera for a particular device."]
@@ -5987,7 +5987,7 @@ extern "C" {
         rectilinear: LEAP_VECTOR,
     ) -> LEAP_VECTOR;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Returns an OpenCV-compatible camera matrix."]
     #[doc = " @param hConnection The connection handle created by LeapCreateConnection()."]
@@ -6000,7 +6000,7 @@ extern "C" {
         dest: *mut f32,
     );
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Returns an OpenCV-compatible camera matrix for a particular device."]
     #[doc = " @param hConnection The connection handle created by LeapCreateConnection()."]
@@ -6015,7 +6015,7 @@ extern "C" {
         dest: *mut f32,
     );
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " This finds the default device and returns the result LeapExtrinsicCameraMatrixEx()"]
     #[doc = ""]
@@ -6030,7 +6030,7 @@ extern "C" {
         dest: *mut f32,
     );
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = ""]
     #[doc = " Returns a transformation matrix from 3D Leap coordinate space to the coordinate system of the requested camera"]
@@ -6055,7 +6055,7 @@ extern "C" {
         dest: *mut f32,
     );
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Returns an OpenCV-compatible lens distortion using the 8-parameter rational"]
     #[doc = " model."]
@@ -6072,7 +6072,7 @@ extern "C" {
         dest: *mut f32,
     );
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Returns an OpenCV-compatible lens distortion for a particular device, using"]
     #[doc = " the 8-parameter rational model."]
@@ -6091,7 +6091,7 @@ extern "C" {
         dest: *mut f32,
     );
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Provides the human-readable canonical name of the specified device model."]
     #[doc = ""]
@@ -6215,7 +6215,7 @@ fn bindgen_test_layout__LEAP_RECORDING_STATUS() {
 #[doc = " Filled in by a call to LeapRecordingGetStatus()."]
 #[doc = " @since 3.2.0"]
 pub type LEAP_RECORDING_STATUS = _LEAP_RECORDING_STATUS;
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Opens or creates a LEAP_RECORDING."]
     #[doc = ""]
@@ -6234,7 +6234,7 @@ extern "C" {
         params: LEAP_RECORDING_PARAMETERS,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Closes a LEAP_RECORDING."]
     #[doc = ""]
@@ -6243,7 +6243,7 @@ extern "C" {
     #[doc = " @since 3.2.0"]
     pub fn LeapRecordingClose(ppRecording: *mut LEAP_RECORDING) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Fills in a LEAP_RECORDING_STATUS struct for an open recording."]
     #[doc = " This struct provides the applicable eLeapRecordingFlags."]
@@ -6257,7 +6257,7 @@ extern "C" {
         pstatus: *mut LEAP_RECORDING_STATUS,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Retrieves the number of bytes required to allocate the next frame in a recording."]
     #[doc = ""]
@@ -6270,7 +6270,7 @@ extern "C" {
     #[doc = " @since 3.2.0"]
     pub fn LeapRecordingReadSize(pRecording: LEAP_RECORDING, pncbEvent: *mut u64) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Reads a tracking frame from a LEAP_RECORDING file."]
     #[doc = ""]
@@ -6288,7 +6288,7 @@ extern "C" {
         ncbEvent: u64,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " Writes a tracking frame to a LEAP_RECORDING file."]
     #[doc = ""]
@@ -6303,7 +6303,7 @@ extern "C" {
         pnBytesWritten: *mut u64,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = " This finds the default device and returns the result of LeapScaleOffsetMatrixEx()"]
     #[doc = " @sa LeapScaleOffsetMatrixEx for additional information"]
@@ -6319,7 +6319,7 @@ extern "C" {
         dest: *mut f32,
     );
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = ""]
     #[doc = " Returns the appropriate scale and offset coefficients required to project"]
@@ -6473,7 +6473,7 @@ fn bindgen_test_layout__LEAP_VERSION() {
 #[doc = ""]
 #[doc = " @since 5.2.0"]
 pub type LEAP_VERSION = _LEAP_VERSION;
-extern "C" {
+unsafe extern "C" {
     #[doc = " \\ingroup Functions"]
     #[doc = ""]
     #[doc = " Returns the version of a specified part of the system."]
@@ -6491,14 +6491,14 @@ extern "C" {
         pVersion: *mut LEAP_VERSION,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     #[doc = " Not Supported:"]
     #[doc = ""]
     #[doc = " The following functions are included for API compatibility with earlier LeapC version."]
     #[doc = " They are no longer supported and calling them will have no effects."]
     pub fn LeapGetPointMappingSize(hConnection: LEAP_CONNECTION, pSize: *mut u64) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn LeapGetPointMapping(
         hConnection: LEAP_CONNECTION,
         pointMapping: *mut LEAP_POINT_MAPPING,
@@ -6649,23 +6649,23 @@ fn bindgen_test_layout__LEAP_TELEMETRY_DATA() {
     test_field_zone_name();
 }
 pub type LEAP_TELEMETRY_DATA = _LEAP_TELEMETRY_DATA;
-extern "C" {
+unsafe extern "C" {
     pub fn LeapTelemetryProfiling(
         hConnection: LEAP_CONNECTION,
         telemetryData: *const LEAP_TELEMETRY_DATA,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn LeapTelemetryGetNow() -> u64;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn LeapInterpolateHeadPose(
         hConnection: LEAP_CONNECTION,
         timestamp: i64,
         pEvent: *mut LEAP_HEAD_POSE_EVENT,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn LeapInterpolateHeadPoseEx(
         hConnection: LEAP_CONNECTION,
         hDevice: LEAP_DEVICE,
@@ -6673,7 +6673,7 @@ extern "C" {
         pEvent: *mut LEAP_HEAD_POSE_EVENT,
     ) -> eLeapRS;
 }
-extern "C" {
+unsafe extern "C" {
     pub fn LeapInterpolateEyePositions(
         hConnection: LEAP_CONNECTION,
         timestamp: i64,
